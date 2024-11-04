@@ -4,6 +4,7 @@
 
 - [Problem Statement](#problem-statement)
 - [Dataset Overview](#dataset-overview)
+- [Data pipeline](#data-pipeline)
 - [Project Outcomes](#project-outcomes)
 - [Technologies Used](#technologies-used)
 
@@ -28,6 +29,10 @@ Here is a dataset based on consumer complaints collected by Consumer Financial P
 **Sub-issue**: The sub-issue reported by the consumer
 
 **Consumer complaint narrative**: Complete description of the complaint reported by the consumer
+
+## Data pipeline
+
+![Alt text](img/datapipeline.png)
 
 ## Project Outcomes
 
