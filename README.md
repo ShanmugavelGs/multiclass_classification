@@ -5,6 +5,7 @@
 - [Problem Statement](#problem-statement)
 - [Dataset Overview](#dataset-overview)
 - [Data pipeline](#data-pipeline)
+- [MLflow UI](#mlflow-ui)
 - [Project Outcomes](#project-outcomes)
 - [Technologies Used](#technologies-used)
 
@@ -33,6 +34,10 @@ Here is a dataset based on consumer complaints collected by Consumer Financial P
 ## Data pipeline
 
 ![Alt text](img/datapipeline.png)
+
+## MLflow UI
+
+![Alt text](img/mlflow_ui.png)
 
 ## Project Outcomes
 
