@@ -1,0 +1,7 @@
+preprocess:
+  input: data/raw/data.parquet
+  output: data/processed/data.parquet
+
+train:
+  data: data/processed/data.parquet
+  model: models/model.pkl

@@ -1,0 +1,27 @@
+stages:
+  preprocess:
+    cmd: python src/preprocess.py
+    deps:
+    - data/raw/data.parquet
+    - src/preprocess.py
+    params:
+    - preprocess.input
+    - preprocess.output
+    outs:
+    - data/processed/data.parquet
+  train:
+    cmd: python src/train.py
+    deps:
+    - data/processed/data.parquet
+    - src/train.py
+    params:
+    - train.data
+    - train.model
+    outs:
+    - models/model.pkl
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - data/processed/data.parquet
+    - models/model.pkl
+    - src/evaluate.py

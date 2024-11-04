@@ -1,0 +1,58 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python src/preprocess.py
+    deps:
+    - path: data/raw/data.parquet
+      hash: md5
+      md5: 49a8ddca210c1d85b04ac495f2aa93ab.dir
+      size: 398937981
+      nfiles: 4
+    - path: src/preprocess.py
+      hash: md5
+      md5: c345b46cee43abcdf2f5e9070884ad7e
+      size: 1388
+    params:
+      params.yaml:
+        preprocess.input: data/raw/data.parquet
+        preprocess.output: data/processed/data.parquet
+    outs:
+    - path: data/processed/data.parquet
+      hash: md5
+      md5: 89382bf436864d05db121c1cfd2c542d
+      size: 199571922
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: data/processed/data.parquet
+      hash: md5
+      md5: 89382bf436864d05db121c1cfd2c542d
+      size: 199571922
+    - path: src/train.py
+      hash: md5
+      md5: 57fd8ac20f0e93e13116217fc81c73f4
+      size: 2442
+    params:
+      params.yaml:
+        train.data: data/processed/data.parquet
+        train.model: models/model.pkl
+    outs:
+    - path: models/model.pkl
+      hash: md5
+      md5: e8e87f36928a95891478a9fabffc289d
+      size: 9296595
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - path: data/processed/data.parquet
+      hash: md5
+      md5: 89382bf436864d05db121c1cfd2c542d
+      size: 199571922
+    - path: models/model.pkl
+      hash: md5
+      md5: e8e87f36928a95891478a9fabffc289d
+      size: 9296595
+    - path: src/evaluate.py
+      hash: md5
+      md5: 55eb8087e8833e56edd0d6359af14d5a
+      size: 1956
