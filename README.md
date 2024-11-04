@@ -64,20 +64,24 @@ Here is a dataset based on consumer complaints collected by Consumer Financial P
 ## DVC Staging Commands
 
 ### Preprocessing pipeline
+```sh
 dvc stage add -n preprocess \
     -p preprocess.input,preprocess.output \
     -d src/preprocess.py -d data/raw/data.parquet \
     -o data/processed/data.parquet \
     python src/preprocess.py
-
+```
 ### Training pipeline
+```sh
 dvc stage add -n train \
     -p train.data,train.model \
     -d src/train.py -d data/processed/data.parquet \
     -o models/model.pkl \
     python src/train.py
-
+```
 ### Evaluation pipeline
+```sh
 dvc stage add -n evaluate \
     -d src/evaluate.py -d models/model.pkl -d data/processed/data.parquet \
     python src/evaluate.py
+```
